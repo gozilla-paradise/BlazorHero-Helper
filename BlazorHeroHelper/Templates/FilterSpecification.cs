@@ -20,6 +20,9 @@ namespace $_NAMESPACE_$
             if (!string.IsNullOrEmpty(searchString))
             {
                 //Criteria = p => p.FirstName.Contains(searchString) || p.LastName.Contains(searchString);
+                Criteria = p => true;
+            } else {
+                Criteria = p => true;
             }
         }
     }
