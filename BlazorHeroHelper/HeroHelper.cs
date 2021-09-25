@@ -556,6 +556,37 @@ namespace BlazorHeroHelper
             return uiNamespace;
         }
 
+        private string CreateValidator(string addEditCQRS)
+        {
+            var appProject = appDir.Text + "\\Application.csproj";
+            var appNameSpace = GetNamespaceFromProject(appProject);
+
+            var validatorNamespace = appNameSpace + ".Validators.Features";
+            if (folderPrefix.Text.Length != 0)
+            {
+                validatorNamespace += "." + folderPrefix.Text;
+            }
+
+            validatorNamespace += "." + entityName.Text + ".Commands.AddEdit";
+
+            var validatorPath = appDir.Text + "\\Validators\\Features\\";
+            if (folderPrefix.Text.Length != 0)
+            {
+                validatorPath += folderPrefix.Text + "\\";
+            }
+
+            validatorPath += entityName.Text + "\\Commands\\AddEdit\\AddEdit" + entityName.Text + "CommandValidator.cs";
+
+            var validatorContent = Templates.Validation.TemplateCode.Replace("$_NAMESPACE_$", validatorNamespace);
+            validatorContent = validatorContent.Replace("$_ENTITY_$", entityName.Text);
+            validatorContent = validatorContent.Replace("$_ADD_EDIT_CQRS_NAMESPACE_$", addEditCQRS);
+
+            WriteConfig(validatorPath, validatorContent);
+
+            return validatorNamespace;
+        }
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -577,6 +608,7 @@ namespace BlazorHeroHelper
             var requestNamespace = CreateRequest();
             var managerNamespace = CreateManager(addEditCQRSNamespace, getAllPagedQueryNamespace, requestNamespace);
             var uiNamespace = CreateUI(addEditCQRSNamespace, getAllPagedQueryNamespace, requestNamespace, managerNamespace);
+            var validatorNamespace = CreateValidator(addEditCQRSNamespace);
 
             dbContextHelper.Text = String.Format("public DbSet<{0}> {0}s {{ get; set; }}", entityName.Text);
             serviceRepositoryHelper.Text = String.Format(".AddTransient<I{0}Repository, {0}Repository>()", entityName.Text);
