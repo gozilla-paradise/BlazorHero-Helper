@@ -33,8 +33,8 @@ namespace $_NAMESPACE_$
         [HttpGet]
         public async Task<IActionResult> GetAll(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
-            var products = await _mediator.Send(new GetAll$_ENTITY_$sQuery(pageNumber, pageSize, searchString, orderBy));
-            return Ok(products);
+            var records = await _mediator.Send(new GetAll$_ENTITY_$sQuery(pageNumber, pageSize, searchString, orderBy));
+            return Ok(records);
         }
 
         /// <summary>
