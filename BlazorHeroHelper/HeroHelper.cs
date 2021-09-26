@@ -659,7 +659,7 @@ namespace BlazorHeroHelper
                 validatorPath += folderPrefix.Text + "\\";
             }
 
-            validatorPath += entityName.Text + "\\Commands\\AddEdit\\AddEdit" + entityName.Text + "CommandValidator.cs";
+            validatorPath += entityName.Text + "s\\Commands\\AddEdit\\AddEdit" + entityName.Text + "CommandValidator.cs";
 
             var validatorContent = Templates.Validation.TemplateCode.Replace("$_NAMESPACE_$", validatorNamespace);
             validatorContent = validatorContent.Replace("$_ENTITY_$", entityName.Text);
