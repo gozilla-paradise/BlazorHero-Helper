@@ -68,6 +68,9 @@
             this.uiModalRazorHelper = new System.Windows.Forms.RichTextBox();
             this.uiModalCsHelper = new System.Windows.Forms.RichTextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -97,9 +100,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -112,10 +112,10 @@
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -504,6 +504,35 @@
             this.label31.TabIndex = 18;
             this.label31.Text = "You need to add client UI => At Client/Pages";
             // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.richTextBox1);
+            this.tabPage10.Controls.Add(this.label14);
+            this.tabPage10.Location = new System.Drawing.Point(4, 24);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(805, 250);
+            this.tabPage10.TabIndex = 10;
+            this.tabPage10.Text = "Nav Menu";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(28, 36);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(752, 192);
+            this.richTextBox1.TabIndex = 9;
+            this.richTextBox1.Text = " ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(28, 18);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(322, 15);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "You need to edit menu => At Client/Shared/NavMenu.razor";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label9);
@@ -773,35 +802,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "You need to add DBContext => At Infrastructure/Context/BlazorHeroContext.cs";
             // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.richTextBox1);
-            this.tabPage10.Controls.Add(this.label14);
-            this.tabPage10.Location = new System.Drawing.Point(4, 24);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(805, 250);
-            this.tabPage10.TabIndex = 10;
-            this.tabPage10.Text = "Nav Menu";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(28, 36);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(752, 192);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = " ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(28, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(322, 15);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "You need to edit menu => At Client/Shared/NavMenu.razor";
-            // 
             // HeroHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -812,7 +812,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "HeroHelper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HeroCrudHelper 1.1";
+            this.Text = "HeroCrudHelper 1.2";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -835,14 +835,14 @@
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.tabPage10.ResumeLayout(false);
-            this.tabPage10.PerformLayout();
             this.ResumeLayout(false);
 
         }
