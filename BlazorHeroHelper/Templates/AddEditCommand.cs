@@ -24,6 +24,7 @@ namespace $_NAMESPACE_$
     public partial class AddEdit$_ENTITY_$Command : IRequest<Result<int>>
     {
         public int Id { get; set; }
+        //TODO: Insert Data Member Here
     }
 
     internal class AddEdit$_ENTITY_$CommandHandler : IRequestHandler<AddEdit$_ENTITY_$Command, Result<int>>
@@ -60,7 +61,9 @@ namespace $_NAMESPACE_$
                     .GetByIdAsync(command.Id);
                 if (record != null)
                 {
-                    /* Modify And Edit Record Here
+
+                    //TODO: Modify And Edit Record Here
+                    /* 
 
                     record.IsShow = command.IsShow;
                     record.MinimumLimit = command.MinimumLimit;

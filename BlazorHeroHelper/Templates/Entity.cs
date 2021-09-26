@@ -15,7 +15,7 @@ namespace $_NAMESPACE_$
 {
     public class $_ENTITY_$ : AuditableEntity<int>
     {
-
+        //TODO: Insert Data Member Here
     }
 }";
 

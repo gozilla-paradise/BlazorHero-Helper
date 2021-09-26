@@ -9,6 +9,7 @@ namespace BlazorHeroHelper.Templates
     public class Controller
     {
         public const string TemplateCode = @"using $_ADD_EDIT_COMMAND_NAMESPACE_$;
+using $_GET_MODEL_BY_ID_CQRS_NAMESPACE_$;
 using $_DELETE_COMMAND_NAMESPACE_$;
 using $_GET_ALL_PAGED_NAMESPACE_$;
 using $_SHARED_CONST_PERMISSION_NAMESPACE_$;
@@ -35,6 +36,19 @@ namespace $_NAMESPACE_$
         {
             var records = await _mediator.Send(new GetAll$_ENTITY_$sQuery(pageNumber, pageSize, searchString, orderBy));
             return Ok(records);
+        }
+
+        /// <summary>
+        /// Get $_ENTITY_$ By Id
+        /// </summary>
+        /// <param name=""id""></param>
+        /// <returns>Status 200 Ok</returns>
+        [Authorize(Policy = Permissions.$_ENTITY_$s.View)]
+        [HttpGet(""{id}"")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var record = await _mediator.Send(new Get$_ENTITY_$ByIdQuery { Id = id });
+            return Ok(record);
         }
 
         /// <summary>

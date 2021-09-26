@@ -39,6 +39,7 @@ namespace BlazorHeroHelper.Templates
                         <MudTextField Disabled For=""@(() => AddEdit$_ENTITY_$Model.Id)"" @bind-Value=""AddEdit$_ENTITY_$Model.Id"" Label=""@_localizer[""Id""]"" />
                     </MudItem>
                 }
+                @* TODO: Insert Data Member Here *@
                 @*<MudItem xs=""12"" md=""6"">
                     <MudTextField For=""@(() => AddEdit$_ENTITY_$Model.Name)"" @bind-Value=""AddEdit$_ENTITY_$Model.Name"" Label=""@_localizer[""Name""]"" />
                 </MudItem>
@@ -169,6 +170,7 @@ else
         </ToolBarContent>
         <HeaderContent>
             <MudTh><MudTableSortLabel T=""GetAllPaged$_ENTITY_$sResponse"" SortLabel=""Id"">@_localizer[""Id""]</MudTableSortLabel></MudTh>
+             @* TODO: Insert Data Member Here *@
             @*<MudTh><MudTableSortLabel T=""GetAllPaged$_ENTITY_$sResponse"" SortLabel=""Name"">@_localizer[""Name""]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T=""GetAllPaged$_ENTITY_$sResponse"" SortLabel=""Brand"">@_localizer[""Brand""]</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T=""GetAllPaged$_ENTITY_$sResponse"" SortLabel=""Description"">@_localizer[""Description""]</MudTableSortLabel></MudTh>
@@ -178,6 +180,7 @@ else
         </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel=""Id"">@context.Id</MudTd>
+             @* TODO: Insert Data Member Here *@
             @*<MudTd DataLabel=""Name"">
                 <MudHighlighter Text=""@context.Name"" HighlightedText=""@_searchString"" />
             </MudTd>
@@ -338,6 +341,8 @@ namespace $_NAMESPACE_$
                     parameters.Add(nameof(AddEdit$_ENTITY_$Modal.AddEdit$_ENTITY_$Model), new AddEdit$_ENTITY_$Command
                     {
                         Id = $_ENTITY_LOWER_$.Id,
+                        //TODO: Insert Data Member Here
+
                         //Name = product.Name,
                         //Description = product.Description,
                         //Rate = product.Rate,

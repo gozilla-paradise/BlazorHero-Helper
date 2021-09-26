@@ -60,6 +60,7 @@ namespace $_NAMESPACE_$
             Expression<Func<$_ENTITY_$, GetAllPaged$_ENTITY_$sResponse>> expression = e => new GetAllPaged$_ENTITY_$sResponse
             {
                 Id = e.Id,
+                //TODO: Insert Data Member Here
             };
             var recordFilterSpec = new $_ENTITY_$FilterSpecification(request.SearchString);
             

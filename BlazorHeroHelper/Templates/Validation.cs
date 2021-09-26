@@ -18,6 +18,7 @@ namespace $_NAMESPACE_$
     {
         public AddEdit$_ENTITY_$CommandValidator(IStringLocalizer<AddEdit$_ENTITY_$CommandValidator> localizer)
         {
+            //TODO: Insert Data Validation Here
             /*RuleFor(request => request.Name)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer[""Name is required!""]);
             RuleFor(request => request.Barcode)

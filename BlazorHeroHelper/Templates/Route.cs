@@ -28,6 +28,11 @@ namespace $_NAMESPACE_$
             return url;
         }
 
+        public static string GetById(int $_ENTITY_LOWER_$Id)
+        {
+            return $""api/v1/$_ENTITY_LOWER_$s/{$_ENTITY_LOWER_$Id}"";
+        }
+
         public static string GetCount = ""api/v1/$_ENTITY_LOWER_$s/count"";
 
         public static string Save = ""api/v1/$_ENTITY_LOWER_$s"";

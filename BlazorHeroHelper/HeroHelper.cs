@@ -332,8 +332,89 @@ namespace BlazorHeroHelper
 
             return getAllPagedResponseNamespace;
         }
-        
-        private string CreateController(string addEditCQRS, string deleteCQRS, string getAllPagedCQRS)
+
+        private string CreateGetModelByIdQuery(string iRepositoryNamespace, string entityNamespace, string filterSpecNamespace)
+        {
+            var appProject = appDir.Text + "\\Application.csproj";
+            var appNameSpace = GetNamespaceFromProject(appProject);
+            var extensionNamespace = appNameSpace + ".Extensions";
+            var getAllPagedQueryNamespace = appNameSpace + ".Features.";
+            if (folderPrefix.Text.Length != 0)
+            {
+                getAllPagedQueryNamespace += folderPrefix.Text + ".";
+            }
+            getAllPagedQueryNamespace += entityName.Text + "s.Queries.GetById";
+
+
+            var sharedProject = sharedDir.Text + "\\Shared.csproj";
+            var sharedNameSpace = GetNamespaceFromProject(sharedProject);
+
+            var sharedWrapperNamespace = sharedNameSpace + ".Wrapper";
+
+            var getModelByIdQueryPath = appDir.Text + "\\Features\\";
+            if (folderPrefix.Text.Length != 0)
+            {
+                getModelByIdQueryPath += folderPrefix.Text + "\\";
+            }
+
+            getModelByIdQueryPath += entityName.Text + "s\\Queries\\GetById\\";
+            getModelByIdQueryPath += "Get" + entityName.Text + "ByIdQuery.cs";
+
+            var getModelByIdQueryContent = Templates.GetModelByIdQuery.TemplateCode.Replace("$_EXTENSION_NAMESPACE_$", extensionNamespace);
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_INTERFACE_REPOSITORY_NAMESPACE_$", iRepositoryNamespace);
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_FILTER_SPECIFICATION_NAMESPACE_$", filterSpecNamespace);
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_SHARED_WRAPPER_NAMESPACE_$", sharedWrapperNamespace);
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_NAMESPACE_$", getAllPagedQueryNamespace);
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_ENTITY_NAMESPACE_$", entityNamespace);
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_ENTITY_$", entityName.Text);
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_ENTITY_LOWER_$", entityName.Text.ToLower());
+
+            WriteConfig(getModelByIdQueryPath, getModelByIdQueryContent);
+
+            return getAllPagedQueryNamespace;
+        }
+
+        private string CreateGetModelByIdResponse(string iRepositoryNamespace, string entityNamespace)
+        {
+            var appProject = appDir.Text + "\\Application.csproj";
+            var appNameSpace = GetNamespaceFromProject(appProject);
+
+            var domainProject = domainDir.Text + "\\Domain.csproj";
+            var domainNamespace = GetNamespaceFromProject(appProject);
+            var enumNamespace = domainNamespace + ".Enums";
+
+            var extensionNamespace = appNameSpace + ".Extensions";
+            var getAllPagedResponseNamespace = appNameSpace + ".Features.";
+            if (folderPrefix.Text.Length != 0)
+            {
+                getAllPagedResponseNamespace += folderPrefix.Text + ".";
+            }
+            getAllPagedResponseNamespace += entityName.Text + "s.Queries.GetById";
+
+
+            var sharedProject = sharedDir.Text + "\\Shared.csproj";
+            var sharedNameSpace = GetNamespaceFromProject(sharedProject);
+
+            var sharedWrapperNamespace = sharedNameSpace + ".Wrapper";
+
+            var getAllPagedResponsePath = appDir.Text + "\\Features\\";
+            if (folderPrefix.Text.Length != 0)
+            {
+                getAllPagedResponsePath += folderPrefix.Text + "\\";
+            }
+
+            getAllPagedResponsePath += entityName.Text + "s\\Queries\\GetById\\";
+            getAllPagedResponsePath += "Get" + entityName.Text + "ByIdResponse.cs";
+
+            var getModelByIdResponseContent = Templates.GetModelByIdResponse.TemplateCode.Replace("$_ENUM_NAMESPACE_$", enumNamespace);
+            getModelByIdResponseContent = getModelByIdResponseContent.Replace("$_NAMESPACE_$", getAllPagedResponseNamespace);
+            getModelByIdResponseContent = getModelByIdResponseContent.Replace("$_ENTITY_$", entityName.Text);
+
+            WriteConfig(getAllPagedResponsePath, getModelByIdResponseContent);
+
+            return getAllPagedResponseNamespace;
+        }
+        private string CreateController(string addEditCQRS, string deleteCQRS, string getAllPagedCQRS, string getModelByIdCQRS)
         {
             var serverProject = serverDir.Text + "\\Server.csproj";
             var serverNamespace = GetNamespaceFromProject(serverProject);
@@ -362,6 +443,7 @@ namespace BlazorHeroHelper
             var controllerContent = Templates.Controller.TemplateCode.Replace("$_ADD_EDIT_COMMAND_NAMESPACE_$", addEditCQRS);
             controllerContent = controllerContent.Replace("$_DELETE_COMMAND_NAMESPACE_$", deleteCQRS);
             controllerContent = controllerContent.Replace("$_GET_ALL_PAGED_NAMESPACE_$", getAllPagedCQRS);
+            controllerContent = controllerContent.Replace("$_GET_MODEL_BY_ID_CQRS_NAMESPACE_$", getModelByIdCQRS);
             controllerContent = controllerContent.Replace("$_SHARED_CONST_PERMISSION_NAMESPACE_$", constPermissionNamespace);
             controllerContent = controllerContent.Replace("$_NAMESPACE_$", controllerNamespace);
             controllerContent = controllerContent.Replace("$_ENTITY_$", entityName.Text);
@@ -421,7 +503,7 @@ namespace BlazorHeroHelper
             return requestNamespace;
         }
 
-        private string CreateManager(string addEditCQRS, string getAllPagedCQRS, string request)
+        private string CreateManager(string addEditCQRS, string getAllPagedCQRS, string request, string getModelByIdCQRS)
         {
             var sharedProject = sharedDir.Text + "\\Shared.csproj";
             var sharedNameSpace = GetNamespaceFromProject(sharedProject);
@@ -453,6 +535,7 @@ namespace BlazorHeroHelper
 
             var iManagerContent = Templates.IEntityManager.TemplateCode1.Replace("$_ADD_EDIT_CQRS_NAMESPACE_$", addEditCQRS);
             iManagerContent = iManagerContent.Replace("$_GET_ALL_PAGED_CQRS_NAMESPACE_$", getAllPagedCQRS);
+            iManagerContent = iManagerContent.Replace("$_GET_MODEL_BY_ID_CQRS_NAMESPACE_$", getModelByIdCQRS);
             iManagerContent = iManagerContent.Replace("$_REQUEST_NAMESPACE_$", request);
             iManagerContent = iManagerContent.Replace("$_SHARED_WRAPPER_NAMESPACE_$", sharedWrapperNamespace);
             iManagerContent = iManagerContent.Replace("$_NAMESPACE_$", managerNamespace);
@@ -460,6 +543,7 @@ namespace BlazorHeroHelper
 
             var managerContent = Templates.IEntityManager.TemplateCode2.Replace("$_ADD_EDIT_CQRS_NAMESPACE_$", addEditCQRS);
             managerContent = managerContent.Replace("$_GET_ALL_PAGED_CQRS_NAMESPACE_$", getAllPagedCQRS);
+            managerContent = managerContent.Replace("$_GET_MODEL_BY_ID_CQRS_NAMESPACE_$", getModelByIdCQRS);
             managerContent = managerContent.Replace("$_REQUEST_NAMESPACE_$", request);
             managerContent = managerContent.Replace("$_SHARED_WRAPPER_NAMESPACE_$", sharedWrapperNamespace);
             managerContent = managerContent.Replace("$_CLIENT_INFRA_EXTENSION_NAMESPACE_$", clientInfraExtensionNamespace);
@@ -603,10 +687,12 @@ namespace BlazorHeroHelper
             var mappingProfileNamespace = CreateMappingProfile(entityNameSpace, addEditCQRSNamespace);
             var getAllPagedQueryNamespace = CreateGetAllPagedQuery(iRepositoryNameSpace, entityNameSpace, filterSpecNamespace);
             var getAllPagedResponseNamespace = CreateGetAllPagedResponse(iRepositoryNameSpace, entityNameSpace);
-            var controllerNamespace = CreateController(addEditCQRSNamespace, deleteCQRSNamespace, getAllPagedQueryNamespace);
+            var getModelByIdQueryNamespace = CreateGetModelByIdQuery(iRepositoryNameSpace, entityNameSpace, filterSpecNamespace);
+            var getModelByIdResponseNamespace = CreateGetModelByIdResponse(iRepositoryNameSpace, entityNameSpace);
+            var controllerNamespace = CreateController(addEditCQRSNamespace, deleteCQRSNamespace, getAllPagedQueryNamespace, getModelByIdQueryNamespace);
             var routeNamespace = CreateRoute();
             var requestNamespace = CreateRequest();
-            var managerNamespace = CreateManager(addEditCQRSNamespace, getAllPagedQueryNamespace, requestNamespace);
+            var managerNamespace = CreateManager(addEditCQRSNamespace, getAllPagedQueryNamespace, requestNamespace, getModelByIdQueryNamespace);
             var uiNamespace = CreateUI(addEditCQRSNamespace, getAllPagedQueryNamespace, requestNamespace, managerNamespace);
             var validatorNamespace = CreateValidator(addEditCQRSNamespace);
 
