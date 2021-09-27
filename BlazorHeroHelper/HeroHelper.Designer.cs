@@ -836,7 +836,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "HeroHelper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HeroCrudHelper 1.2";
+            this.Text = "HeroCrudHelper 1.2.1";
             this.Load += new System.EventHandler(this.HeroHelper_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
