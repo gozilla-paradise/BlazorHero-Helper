@@ -82,6 +82,7 @@ namespace BlazorHeroHelper
             }
 
             entityContent = entityContent.Replace("$_ENTITY_$", entityName.Text);
+            entityContent = entityContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(entityPath, entityContent);
 
@@ -100,6 +101,7 @@ namespace BlazorHeroHelper
             var iRepositoryContent = Templates.IRepository.TemplateCode.Replace("$_CONTRACTS_$", domainContract);
             iRepositoryContent = iRepositoryContent.Replace("$_NAMESPACE_$", nameSpace + ".Interfaces.Repositories");
             iRepositoryContent = iRepositoryContent.Replace("$_MODEL_$", entityName.Text);
+            iRepositoryContent = iRepositoryContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(iRepositoryPath, iRepositoryContent);
 
@@ -120,6 +122,7 @@ namespace BlazorHeroHelper
             repositoryContent = repositoryContent.Replace("$_ENTITY_NAMESPACE_$", nameSpaceEntity);
             repositoryContent = repositoryContent.Replace("$_NAMESPACE_$", repositoryNamespace);
             repositoryContent = repositoryContent.Replace("$_ENTITY_$", entityName.Text);
+            repositoryContent = repositoryContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(repositoryPath, repositoryContent);
 
@@ -157,6 +160,7 @@ namespace BlazorHeroHelper
             addEditCQRSContent = addEditCQRSContent.Replace("$_NAMESPACE_$", addEditCQRSNamespace);
             addEditCQRSContent = addEditCQRSContent.Replace("$_ENTITY_NAMESPACE_$", entityNamespace);
             addEditCQRSContent = addEditCQRSContent.Replace("$_ENTITY_$", entityName.Text);
+            addEditCQRSContent = addEditCQRSContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(addEditCQRSPath, addEditCQRSContent);
 
@@ -194,6 +198,7 @@ namespace BlazorHeroHelper
             deleteCQRSContent = deleteCQRSContent.Replace("$_NAMESPACE_$", deleteCQRSNamespace);
             deleteCQRSContent = deleteCQRSContent.Replace("$_ENTITY_NAMESPACE_$", entityNamespace);
             deleteCQRSContent = deleteCQRSContent.Replace("$_ENTITY_$", entityName.Text);
+            deleteCQRSContent = deleteCQRSContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(deleteCQRSPath, deleteCQRSContent);
 
@@ -224,6 +229,7 @@ namespace BlazorHeroHelper
             specificationContent = specificationContent.Replace("$_ENTITY_NAMESPACE_$", entityNamespace);
             specificationContent = specificationContent.Replace("$_NAMESPACE_$", specificationNamespace);
             specificationContent = specificationContent.Replace("$_ENTITY_$", entityName.Text);
+            specificationContent = specificationContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(specificationPath, specificationContent);
 
@@ -245,6 +251,7 @@ namespace BlazorHeroHelper
             mappingProfileContent = mappingProfileContent.Replace("$_ENTITY_NAMESPACE_$", entityNamespace);
             mappingProfileContent = mappingProfileContent.Replace("$_NAMESPACE_$", mappingProfileNamespace);
             mappingProfileContent = mappingProfileContent.Replace("$_ENTITY_$", entityName.Text);
+            mappingProfileContent = mappingProfileContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
 
             WriteConfig(mappingProfilePath, mappingProfileContent);
@@ -286,6 +293,7 @@ namespace BlazorHeroHelper
             getAllPagedQueryContent = getAllPagedQueryContent.Replace("$_NAMESPACE_$", getAllPagedQueryNamespace);
             getAllPagedQueryContent = getAllPagedQueryContent.Replace("$_ENTITY_NAMESPACE_$", entityNamespace);
             getAllPagedQueryContent = getAllPagedQueryContent.Replace("$_ENTITY_$", entityName.Text);
+            getAllPagedQueryContent = getAllPagedQueryContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(getAllPagedQueryPath, getAllPagedQueryContent);
 
@@ -327,6 +335,7 @@ namespace BlazorHeroHelper
             var getAllPagedResponseContent = Templates.GetAllPagedResponse.TemplateCode.Replace("$_ENUM_NAMESPACE_$", enumNamespace);
             getAllPagedResponseContent = getAllPagedResponseContent.Replace("$_NAMESPACE_$", getAllPagedResponseNamespace);
             getAllPagedResponseContent = getAllPagedResponseContent.Replace("$_ENTITY_$", entityName.Text);
+            getAllPagedResponseContent = getAllPagedResponseContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(getAllPagedResponsePath, getAllPagedResponseContent);
 
@@ -368,6 +377,7 @@ namespace BlazorHeroHelper
             getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_ENTITY_NAMESPACE_$", entityNamespace);
             getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_ENTITY_$", entityName.Text);
             getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_ENTITY_LOWER_$", entityName.Text.ToLower());
+            getModelByIdQueryContent = getModelByIdQueryContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(getModelByIdQueryPath, getModelByIdQueryContent);
 
@@ -409,6 +419,7 @@ namespace BlazorHeroHelper
             var getModelByIdResponseContent = Templates.GetModelByIdResponse.TemplateCode.Replace("$_ENUM_NAMESPACE_$", enumNamespace);
             getModelByIdResponseContent = getModelByIdResponseContent.Replace("$_NAMESPACE_$", getAllPagedResponseNamespace);
             getModelByIdResponseContent = getModelByIdResponseContent.Replace("$_ENTITY_$", entityName.Text);
+            getModelByIdResponseContent = getModelByIdResponseContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(getAllPagedResponsePath, getModelByIdResponseContent);
 
@@ -448,6 +459,7 @@ namespace BlazorHeroHelper
             controllerContent = controllerContent.Replace("$_NAMESPACE_$", controllerNamespace);
             controllerContent = controllerContent.Replace("$_ENTITY_$", entityName.Text);
             controllerContent = controllerContent.Replace("$_SERVER_CONTROLLER_NAMESPACE_$", serverControllersNamespace);
+            controllerContent = controllerContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(controllerPath, controllerContent);
 
@@ -466,6 +478,7 @@ namespace BlazorHeroHelper
             var routeContent = Templates.Route.TemplateCode.Replace("$_NAMESPACE_$", routeNamespace);
             routeContent = routeContent.Replace("$_ENTITY_$", entityName.Text);
             routeContent = routeContent.Replace("$_ENTITY_LOWER_$", entityName.Text.ToLower());
+            routeContent = routeContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(routePath, routeContent);
 
@@ -495,6 +508,7 @@ namespace BlazorHeroHelper
 
             var requestContent = Templates.Request.TemplateCode.Replace("$_NAMESPACE_$", requestNamespace);
             requestContent = requestContent.Replace("$_ENTITY_$", entityName.Text);
+            requestContent = requestContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(requestPath, requestContent);
 
@@ -540,6 +554,7 @@ namespace BlazorHeroHelper
             iManagerContent = iManagerContent.Replace("$_SHARED_WRAPPER_NAMESPACE_$", sharedWrapperNamespace);
             iManagerContent = iManagerContent.Replace("$_NAMESPACE_$", managerNamespace);
             iManagerContent = iManagerContent.Replace("$_ENTITY_$", entityName.Text);
+            iManagerContent = iManagerContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             var managerContent = Templates.IEntityManager.TemplateCode2.Replace("$_ADD_EDIT_CQRS_NAMESPACE_$", addEditCQRS);
             managerContent = managerContent.Replace("$_GET_ALL_PAGED_CQRS_NAMESPACE_$", getAllPagedCQRS);
@@ -549,6 +564,7 @@ namespace BlazorHeroHelper
             managerContent = managerContent.Replace("$_CLIENT_INFRA_EXTENSION_NAMESPACE_$", clientInfraExtensionNamespace);
             managerContent = managerContent.Replace("$_NAMESPACE_$", managerNamespace);
             managerContent = managerContent.Replace("$_ENTITY_$", entityName.Text);
+            managerContent = managerContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(iManagerPath, iManagerContent);
             WriteConfig(managerPath, managerContent);
@@ -601,6 +617,7 @@ namespace BlazorHeroHelper
             var uiListRazorContent = Templates.UITemplate.ListRazor.Replace("$_PAGE_PATH_$", pagePath);
             uiListRazorContent = uiListRazorContent.Replace("$_ENTITY_$", entityName.Text);
             uiListRazorContent = uiListRazorContent.Replace("$_GET_ALL_PAGED_NAMESPACE_$", getAllPagedCQRS);
+            uiListRazorContent = uiListRazorContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             var uiListCsContent = Templates.UITemplate.ListCS.Replace("$_GET_ALL_PAGED_CQRS_NAMESPACE_$", getAllPagedCQRS);
             uiListCsContent = uiListCsContent.Replace("$_REQUEST_NAMESPACE_$", request);
@@ -612,9 +629,11 @@ namespace BlazorHeroHelper
             uiListCsContent = uiListCsContent.Replace("$_NAMESPACE_$", uiNamespace);
             uiListCsContent = uiListCsContent.Replace("$_ENTITY_$", entityName.Text);
             uiListCsContent = uiListCsContent.Replace("$_ENTITY_LOWER_$", lowerEntityName);
+            uiListCsContent = uiListCsContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             var uiModalRazorContent = Templates.UITemplate.AddEditModalRazor.Replace("$_PAGE_PATH_$", pagePath);
             uiModalRazorContent = uiModalRazorContent.Replace("$_ENTITY_$", entityName.Text);
+            uiModalRazorContent = uiModalRazorContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             var uiModalCsContent = Templates.UITemplate.AddEditModalCS.Replace("$_GET_ALL_PAGED_CQRS_NAMESPACE_$", getAllPagedCQRS);
             uiModalCsContent = uiModalCsContent.Replace("$_REQUEST_NAMESPACE_$", request);
@@ -626,6 +645,7 @@ namespace BlazorHeroHelper
             uiModalCsContent = uiModalCsContent.Replace("$_NAMESPACE_$", uiNamespace);
             uiModalCsContent = uiModalCsContent.Replace("$_ENTITY_$", entityName.Text);
             uiModalCsContent = uiModalCsContent.Replace("$_ENTITY_LOWER_$", lowerEntityName);
+            uiModalCsContent = uiModalCsContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(uiListRazor, uiListRazorContent);
             WriteConfig(uiListCs, uiListCsContent);
@@ -664,6 +684,7 @@ namespace BlazorHeroHelper
             var validatorContent = Templates.Validation.TemplateCode.Replace("$_NAMESPACE_$", validatorNamespace);
             validatorContent = validatorContent.Replace("$_ENTITY_$", entityName.Text);
             validatorContent = validatorContent.Replace("$_ADD_EDIT_CQRS_NAMESPACE_$", addEditCQRS);
+            validatorContent = validatorContent.Replace("$_DEFAULT_ID_DATATYPE_$", defaultDatatype.Text);
 
             WriteConfig(validatorPath, validatorContent);
 
