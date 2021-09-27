@@ -14,7 +14,7 @@ namespace $_NAMESPACE_$
 {
     public class GetAllPaged$_ENTITY_$sResponse
     {
-        public int Id { get; set; }
+        public $_DEFAULT_ID_DATATYPE_$ Id { get; set; }
         //TODO: Insert Data Member Here
     }
 }

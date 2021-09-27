@@ -330,7 +330,7 @@ namespace $_NAMESPACE_$
             _table.ReloadServerData();
         }
 
-        private async Task InvokeModal(int id = 0)
+        private async Task InvokeModal($_DEFAULT_ID_DATATYPE_$ id = 0)
         {
             var parameters = new DialogParameters();
             if (id != 0)
@@ -360,7 +360,7 @@ namespace $_NAMESPACE_$
             }
         }
 
-        private async Task Delete(int id)
+        private async Task Delete($_DEFAULT_ID_DATATYPE_$ id)
         {
             string deleteContent = _localizer[""Delete Content""];
             var parameters = new DialogParameters

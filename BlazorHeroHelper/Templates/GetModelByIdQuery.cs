@@ -20,15 +20,15 @@ namespace $_NAMESPACE_$
 {
     public class Get$_ENTITY_$ByIdQuery : IRequest<Result<Get$_ENTITY_$ByIdResponse>>
     {
-        public int Id { get; set; }
+        public $_DEFAULT_ID_DATATYPE_$ Id { get; set; }
     }
 
     internal class Get$_ENTITY_$ByIdQueryHandler : IRequestHandler<Get$_ENTITY_$ByIdQuery, Result<Get$_ENTITY_$ByIdResponse>>
     {
-        private readonly IUnitOfWork<int> _unitOfWork;
+        private readonly IUnitOfWork<$_DEFAULT_ID_DATATYPE_$> _unitOfWork;
         private readonly IMapper _mapper;
 
-        public Get$_ENTITY_$ByIdQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper)
+        public Get$_ENTITY_$ByIdQueryHandler(IUnitOfWork<$_DEFAULT_ID_DATATYPE_$> unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

@@ -14,7 +14,7 @@ namespace $_NAMESPACE_$
 {
     public class Get$_ENTITY_$ByIdResponse
     {
-        public int Id { get; set; }
+        public $_DEFAULT_ID_DATATYPE_$ Id { get; set; }
         //TODO: Insert Data Member Here
     }
 }

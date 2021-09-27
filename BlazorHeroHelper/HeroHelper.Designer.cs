@@ -91,6 +91,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.defaultDatatype = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.entityName = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -707,6 +709,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.defaultDatatype);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.entityName);
             this.groupBox3.Controls.Add(this.button1);
@@ -714,10 +718,30 @@
             this.groupBox3.Controls.Add(this.folderPrefix);
             this.groupBox3.Location = new System.Drawing.Point(12, 374);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(408, 87);
+            this.groupBox3.Size = new System.Drawing.Size(408, 120);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Entity Setting";
+            // 
+            // defaultDatatype
+            // 
+            this.defaultDatatype.FormattingEnabled = true;
+            this.defaultDatatype.Items.AddRange(new object[] {
+            "int",
+            "long"});
+            this.defaultDatatype.Location = new System.Drawing.Point(142, 88);
+            this.defaultDatatype.Name = "defaultDatatype";
+            this.defaultDatatype.Size = new System.Drawing.Size(113, 23);
+            this.defaultDatatype.TabIndex = 24;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(27, 88);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(108, 15);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Default Id Datatype";
             // 
             // label11
             // 
@@ -730,16 +754,16 @@
             // 
             // entityName
             // 
-            this.entityName.Location = new System.Drawing.Point(104, 53);
+            this.entityName.Location = new System.Drawing.Point(142, 53);
             this.entityName.Name = "entityName";
-            this.entityName.Size = new System.Drawing.Size(151, 23);
+            this.entityName.Size = new System.Drawing.Size(113, 23);
             this.entityName.TabIndex = 22;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(273, 22);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 54);
+            this.button1.Size = new System.Drawing.Size(118, 89);
             this.button1.TabIndex = 20;
             this.button1.Text = "Generate Entity";
             this.button1.UseVisualStyleBackColor = true;
@@ -756,9 +780,9 @@
             // 
             // folderPrefix
             // 
-            this.folderPrefix.Location = new System.Drawing.Point(104, 24);
+            this.folderPrefix.Location = new System.Drawing.Point(142, 24);
             this.folderPrefix.Name = "folderPrefix";
-            this.folderPrefix.Size = new System.Drawing.Size(151, 23);
+            this.folderPrefix.Size = new System.Drawing.Size(113, 23);
             this.folderPrefix.TabIndex = 19;
             // 
             // groupBox4
@@ -768,7 +792,7 @@
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Location = new System.Drawing.Point(426, 374);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(930, 87);
+            this.groupBox4.Size = new System.Drawing.Size(930, 120);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Note";
@@ -806,13 +830,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 474);
+            this.ClientSize = new System.Drawing.Size(1372, 506);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "HeroHelper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HeroCrudHelper 1.2";
+            this.Load += new System.EventHandler(this.HeroHelper_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -920,5 +945,7 @@
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox defaultDatatype;
+        private System.Windows.Forms.Label label15;
     }
 }

@@ -701,5 +701,10 @@ namespace BlazorHeroHelper
             permissionHelper.Text = Templates.Permission.TemplateCode.Replace("$_ENTITY_$", entityName.Text);
             MessageBox.Show("Done!");
         }
+
+        private void HeroHelper_Load(object sender, EventArgs e)
+        {
+            defaultDatatype.SelectedIndex = 0;
+        }
     }
 }

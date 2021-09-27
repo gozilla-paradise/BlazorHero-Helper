@@ -12,7 +12,7 @@ namespace BlazorHeroHelper.Templates
 
 namespace $_NAMESPACE_$
 {
-    public class I$_MODEL_$Repository : AuditableEntity<int>
+    public class I$_MODEL_$Repository : AuditableEntity<$_DEFAULT_ID_DATATYPE_$>
     {
         
     }

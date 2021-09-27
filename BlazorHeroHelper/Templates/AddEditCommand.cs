@@ -21,19 +21,19 @@ using $_SHARED_WRAPPER_NAMESPACE_$;
 
 namespace $_NAMESPACE_$
 {
-    public partial class AddEdit$_ENTITY_$Command : IRequest<Result<int>>
+    public partial class AddEdit$_ENTITY_$Command : IRequest<Result<$_DEFAULT_ID_DATATYPE_$>>
     {
-        public int Id { get; set; }
+        public $_DEFAULT_ID_DATATYPE_$ Id { get; set; }
         //TODO: Insert Data Member Here
     }
 
-    internal class AddEdit$_ENTITY_$CommandHandler : IRequestHandler<AddEdit$_ENTITY_$Command, Result<int>>
+    internal class AddEdit$_ENTITY_$CommandHandler : IRequestHandler<AddEdit$_ENTITY_$Command, Result<$_DEFAULT_ID_DATATYPE_$>>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork<int> _unitOfWork;
+        private readonly IUnitOfWork<$_DEFAULT_ID_DATATYPE_$> _unitOfWork;
         private readonly IStringLocalizer<AddEdit$_ENTITY_$CommandHandler> _localizer;
 
-        public AddEdit$_ENTITY_$CommandHandler(IUnitOfWork<int> unitOfWork, IMapper mapper,
+        public AddEdit$_ENTITY_$CommandHandler(IUnitOfWork<$_DEFAULT_ID_DATATYPE_$> unitOfWork, IMapper mapper,
             IStringLocalizer<AddEdit$_ENTITY_$CommandHandler> localizer)
         {
             _unitOfWork = unitOfWork;
@@ -41,11 +41,11 @@ namespace $_NAMESPACE_$
             _localizer = localizer;
         }
 
-        public async Task<Result<int>> Handle(AddEdit$_ENTITY_$Command command, CancellationToken cancellationToken)
+        public async Task<Result<$_DEFAULT_ID_DATATYPE_$>> Handle(AddEdit$_ENTITY_$Command command, CancellationToken cancellationToken)
         {
             if (await _unitOfWork.Repository<$_ENTITY_$>().Entities.Where(s => s.Id != command.Id).AnyAsync(cancellationToken: cancellationToken))
             {
-                return await Result<int>.FailAsync(""Record is already existed"");
+                return await Result<$_DEFAULT_ID_DATATYPE_$>.FailAsync(""Record is already existed"");
             }
 
             if (command.Id == 0)
@@ -53,7 +53,7 @@ namespace $_NAMESPACE_$
                 var record = _mapper.Map<$_ENTITY_$>(command);
                 await _unitOfWork.Repository<$_ENTITY_$>().AddAsync(record);
                 await _unitOfWork.Commit(cancellationToken);
-                return await Result<int>.SuccessAsync(record.Id, ""Create Record Successfully"");
+                return await Result<$_DEFAULT_ID_DATATYPE_$>.SuccessAsync(record.Id, ""Create Record Successfully"");
             }
             else
             {
@@ -73,11 +73,11 @@ namespace $_NAMESPACE_$
 
                     await _unitOfWork.Repository<$_ENTITY_$>().UpdateAsync(record);
                     await _unitOfWork.Commit(cancellationToken);
-                    return await Result<int>.SuccessAsync(record.Id, ""Update Record Successfully"");
+                    return await Result<$_DEFAULT_ID_DATATYPE_$>.SuccessAsync(record.Id, ""Update Record Successfully"");
                 }
                 else
                 {
-                    return await Result<int>.FailAsync(""Record Not Found"");
+                    return await Result<$_DEFAULT_ID_DATATYPE_$>.FailAsync(""Record Not Found"");
                 }
             }
         }

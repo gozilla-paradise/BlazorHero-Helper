@@ -23,9 +23,9 @@ namespace $_NAMESPACE_$
 
         Task<IResult<Get$_ENTITY_$ByIdResponse>> GetByIdAsync(Get$_ENTITY_$ByIdQuery request);
 
-        Task<IResult<int>> SaveAsync(AddEdit$_ENTITY_$Command request);
+        Task<IResult<$_DEFAULT_ID_DATATYPE_$>> SaveAsync(AddEdit$_ENTITY_$Command request);
 
-        Task<IResult<int>> DeleteAsync(int id);
+        Task<IResult<$_DEFAULT_ID_DATATYPE_$>> DeleteAsync($_DEFAULT_ID_DATATYPE_$ id);
     }
 }";
 
@@ -50,10 +50,10 @@ namespace $_NAMESPACE_$
             _httpClient = httpClient;
         }
 
-        public async Task<IResult<int>> DeleteAsync(int id)
+        public async Task<IResult<$_DEFAULT_ID_DATATYPE_$>> DeleteAsync($_DEFAULT_ID_DATATYPE_$ id)
         {
             var response = await _httpClient.DeleteAsync($""{Routes.$_ENTITY_$sEndpoints.Delete}/{id}"");
-            return await response.ToResult<int>();
+            return await response.ToResult<$_DEFAULT_ID_DATATYPE_$>();
         }
 
         public async Task<PaginatedResult<GetAllPaged$_ENTITY_$sResponse>> Get$_ENTITY_$sAsync(GetAllPaged$_ENTITY_$sRequest request)
@@ -68,10 +68,10 @@ namespace $_NAMESPACE_$
             return await response.ToResult<Get$_ENTITY_$ByIdResponse>();
         }
 
-        public async Task<IResult<int>> SaveAsync(AddEdit$_ENTITY_$Command request)
+        public async Task<IResult<$_DEFAULT_ID_DATATYPE_$>> SaveAsync(AddEdit$_ENTITY_$Command request)
         {
             var response = await _httpClient.PostAsJsonAsync(Routes.$_ENTITY_$sEndpoints.Save, request);
-            return await response.ToResult<int>();
+            return await response.ToResult<$_DEFAULT_ID_DATATYPE_$>();
         }
     }
 }";

@@ -47,9 +47,9 @@ namespace $_NAMESPACE_$
     internal class
         GetAll$_ENTITY_$sQueryHandler : IRequestHandler<GetAll$_ENTITY_$sQuery, PaginatedResult<GetAllPaged$_ENTITY_$sResponse>>
     {
-        private readonly IUnitOfWork<int> _unitOfWork;
+        private readonly IUnitOfWork<$_DEFAULT_ID_DATATYPE_$> _unitOfWork;
 
-        public GetAll$_ENTITY_$sQueryHandler(IUnitOfWork<int> unitOfWork)
+        public GetAll$_ENTITY_$sQueryHandler(IUnitOfWork<$_DEFAULT_ID_DATATYPE_$> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

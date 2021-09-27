@@ -45,7 +45,7 @@ namespace $_NAMESPACE_$
         /// <returns>Status 200 Ok</returns>
         [Authorize(Policy = Permissions.$_ENTITY_$s.View)]
         [HttpGet(""{id}"")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById($_DEFAULT_ID_DATATYPE_$ id)
         {
             var record = await _mediator.Send(new Get$_ENTITY_$ByIdQuery { Id = id });
             return Ok(record);
@@ -70,7 +70,7 @@ namespace $_NAMESPACE_$
         /// <returns>Status 200 OK response</returns>
         [Authorize(Policy = Permissions.$_ENTITY_$s.Delete)]
         [HttpDelete(""{id}"")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete($_DEFAULT_ID_DATATYPE_$ id)
         {
             return Ok(await _mediator.Send(new Delete$_ENTITY_$Command { Id = id }));
         }

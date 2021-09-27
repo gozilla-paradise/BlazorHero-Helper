@@ -13,7 +13,7 @@ using $_ENUMS_$;
 
 namespace $_NAMESPACE_$
 {
-    public class $_ENTITY_$ : AuditableEntity<int>
+    public class $_ENTITY_$ : AuditableEntity<$_DEFAULT_ID_DATATYPE_$>
     {
         //TODO: Insert Data Member Here
     }
