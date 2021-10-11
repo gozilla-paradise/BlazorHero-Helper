@@ -15,6 +15,7 @@ using $_SHARED_WRAPPER_NAMESPACE_$;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using System;
 
 namespace $_NAMESPACE_$
 {

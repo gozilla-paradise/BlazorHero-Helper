@@ -9,6 +9,7 @@ namespace BlazorHeroHelper.Templates
     public class Route
     {
         public const string TemplateCode = @"using System.Linq;
+using System;
 
 namespace $_NAMESPACE_$
 {

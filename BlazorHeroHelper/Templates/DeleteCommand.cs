@@ -15,6 +15,7 @@ using Microsoft.Extensions.Localization;
 using $_INTERFACE_REPOSITORY_NAMESPACE_$;
 using $_SHARED_WRAPPER_NAMESPACE_$;
 using $_ENTITY_NAMESPACE_$;
+using System;
 
 namespace $_NAMESPACE_$
 {

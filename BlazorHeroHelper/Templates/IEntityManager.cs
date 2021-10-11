@@ -14,6 +14,7 @@ using $_GET_MODEL_BY_ID_CQRS_NAMESPACE_$;
 using $_REQUEST_NAMESPACE_$;
 using $_SHARED_WRAPPER_NAMESPACE_$;
 using System.Threading.Tasks;
+using System;
 
 namespace $_NAMESPACE_$
 {

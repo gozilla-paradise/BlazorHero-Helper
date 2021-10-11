@@ -9,6 +9,7 @@ namespace BlazorHeroHelper.Templates
     public class GetModelByIdResponse
     {
         public const string TemplateCode = @"using $_ENUM_NAMESPACE_$;
+using System;
 
 namespace $_NAMESPACE_$
 {

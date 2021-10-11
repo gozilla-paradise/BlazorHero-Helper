@@ -9,6 +9,7 @@ namespace BlazorHeroHelper.Templates
     public class IRepository
     {
         public const string TemplateCode = @"using $_CONTRACTS_$;
+using System;
 
 namespace $_NAMESPACE_$
 {

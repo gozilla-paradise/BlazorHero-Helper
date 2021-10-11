@@ -9,6 +9,7 @@ namespace BlazorHeroHelper.Templates
     public class AddEditCommand
     {
         public const string TemplateCode = @"using System.Linq;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;

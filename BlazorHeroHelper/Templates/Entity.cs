@@ -10,6 +10,7 @@ namespace BlazorHeroHelper.Templates
     {
         public const string TemplateCode = @"using $_CONTRACTS_$;
 using $_ENUMS_$;
+using System;
 
 namespace $_NAMESPACE_$
 {

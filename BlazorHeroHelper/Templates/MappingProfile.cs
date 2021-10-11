@@ -11,6 +11,7 @@ namespace BlazorHeroHelper.Templates
         public const string TemplateCode = @"using AutoMapper;
 using $_ADD_EDIT_CQRS_NAMESPACE_$;
 using $_ENTITY_NAMESPACE_$;
+using System;
 
 namespace $_NAMESPACE_$
 {

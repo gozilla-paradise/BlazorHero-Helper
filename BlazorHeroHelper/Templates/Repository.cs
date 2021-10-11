@@ -10,6 +10,7 @@ namespace BlazorHeroHelper.Templates
     {
         public const string TemplateCode = @"using $_INTERFACE_REPOSITORY_NAMESPACE_$;
 using $_ENTITY_NAMESPACE_$;
+using System;
 
 namespace $_NAMESPACE_$
 {

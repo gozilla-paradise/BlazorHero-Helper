@@ -11,6 +11,7 @@ namespace BlazorHeroHelper.Templates
         public const string TemplateCode = @"using $_ADD_EDIT_CQRS_NAMESPACE_$;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
+using System;
 
 namespace $_NAMESPACE_$
 {
