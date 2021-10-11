@@ -16,7 +16,7 @@ namespace BlazorHeroHelper.Templates
             public const string Create = ""Permissions.$_ENTITY_$s.Create"";
             public const string Edit = ""Permissions.$_ENTITY_$s.Edit"";
             public const string Delete = ""Permissions.$_ENTITY_$s.Delete"";
-            public const string Search = ""Permissions.Products.Search"";
+            public const string Search = ""Permissions.$_ENTITY_$s.Search"";
         }";
     }
 }
